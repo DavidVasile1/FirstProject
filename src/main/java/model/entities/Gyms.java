@@ -6,27 +6,20 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
-import java.util.List;
 import java.util.UUID;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Subscription {
+public class Gyms {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
-    private LocalDate startData;
-    private LocalDate endData;
-    @OneToOne
-    private Members member;
-    @OneToMany
-    private List<Classes> classes;
+    private String name;
+    private String location;
+    private String program;
     @ManyToMany
-    private List<Gyms> gyms;
-
-
+    private Subscription subscription;
 }
