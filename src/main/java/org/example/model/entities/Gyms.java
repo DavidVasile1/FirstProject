@@ -1,4 +1,5 @@
-package model.entities;
+package org.example.model.entities;
+
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -11,13 +12,14 @@ import java.util.UUID;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Classes {
+public class Gyms {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
     private String name;
-    private String trainerName;
+    private String location;
     private String program;
-    private Subscription subscription;
+    @OneToMany
+    private Classes classes;
 }

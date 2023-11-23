@@ -1,4 +1,4 @@
-package model.entities;
+package org.example.model.entities;
 
 
 import jakarta.persistence.*;
@@ -23,10 +23,9 @@ public class Subscription {
     private LocalDate endData;
     @OneToOne
     private Members member;
-    @OneToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     private List<Classes> classes;
-    @ManyToMany
-    private List<Gyms> gyms;
+
 
 
 }
