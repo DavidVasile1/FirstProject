@@ -6,8 +6,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
 import java.util.UUID;
 
+@Table(name = "gyms",schema = "gymschema")
 @Entity
 @Data
 @NoArgsConstructor
@@ -20,6 +22,6 @@ public class Gyms {
     private String name;
     private String location;
     private String program;
-    @OneToMany
-    private Classes classes;
+    @OneToMany(mappedBy = "gym",cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Classes> classes;
 }

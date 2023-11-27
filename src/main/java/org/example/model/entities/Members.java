@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 
 import java.util.UUID;
 
+@Table(name = "members",schema = "gymschema")
 @Entity
 @Data
 @NoArgsConstructor

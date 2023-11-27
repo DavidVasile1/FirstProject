@@ -10,6 +10,7 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
+@Table(name = "subscription",schema = "gymschema")
 @Entity
 @Data
 @NoArgsConstructor
@@ -19,11 +20,11 @@ public class Subscription {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
-    private LocalDate startData;
-    private LocalDate endData;
+    private LocalDate startDate;
+    private LocalDate endDate;
     @OneToOne
     private Members member;
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL,mappedBy = "subscriptions")
     private List<Classes> classes;
 
 
